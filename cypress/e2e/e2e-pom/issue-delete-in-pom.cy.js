@@ -16,10 +16,22 @@ describe('Issue delete', () => {
   const issueTitle = 'This is an issue of type: Task.';
 
   it('Should delete issue successfully', () => {
-    //add steps to delete issue
+    // Delete the issue by clicking the delete button and confirming the deletion
+    IssueModal.clickDeleteButton();
+    IssueModal.confirmDeletion();
+    // Assert that issue is not visible anymore
+    IssueModal.ensureIssueIsNotVisibleOnBoard(issueTitle);
   });
 
   it('Should cancel deletion process successfully', () => {
     //add steps to start deletion proces but cancel it
+    // Click the Delete Issue button
+    IssueModal.clickDeleteButton();
+    // Cancel the deletion in the confirmation pop-up
+    IssueModal.cancelDeletion();
+    // Close the detail modal 
+    IssueModal.closeDetailModal();
+    // Assert that the issue is not deleted and is still displayed on the Jira board
+    IssueModal.ensureIssueIsVisibleOnBoard(issueTitle);
   });
 });
