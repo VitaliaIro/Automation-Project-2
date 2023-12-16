@@ -1,13 +1,10 @@
-/**
- * This is an example file and approach for POM in Cypress
- */
 import IssueModal from "../../pages/IssueModal";
 
 describe('Issue delete', () => {
   beforeEach(() => {
     cy.visit('/');
     cy.url().should('eq', `${Cypress.env('baseUrl')}project/board`).then((url) => {
-    //open issue detail modal with title from line 16  
+    //open issue detail modal 
     cy.contains(issueTitle).click();
     });
   });
@@ -24,7 +21,6 @@ describe('Issue delete', () => {
   });
 
   it('Should cancel deletion process successfully', () => {
-    //add steps to start deletion proces but cancel it
     // Click the Delete Issue button
     IssueModal.clickDeleteButton();
     // Cancel the deletion in the confirmation pop-up
