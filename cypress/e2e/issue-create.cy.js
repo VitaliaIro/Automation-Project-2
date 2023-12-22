@@ -9,6 +9,7 @@ describe('Issue create', () => {
       cy.get('[data-testid="modal:issue-create"]').click();
     });
   });
+  
 
   it('Should create an issue and validate it successfully', () => {
     // System finds modal for creating issue and does next steps inside of it
