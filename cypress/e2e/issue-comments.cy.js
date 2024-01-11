@@ -36,7 +36,7 @@ describe("Issue comments creating, editing and deleting", () => {
     cy.get('button[type="submit"]').click();
     // Assert that created issue is visible in the list of issues
     cy.contains(issueTitle).should("be.visible");
-  };
+  }
 
   function buttonsVisibilityAssertion() {
     cy.contains("button", "Cancel").should("be.visible");
@@ -44,12 +44,13 @@ describe("Issue comments creating, editing and deleting", () => {
       .should("be.visible")
       .click()
       .should("not.exist");
-  };
+  }
 
   const getIssueDetailsModal = () =>
     cy.get('[data-testid="modal:issue-details"]');
   const issueCommentSection = '[data-testid="issue-comment"]';
-  const comment = "This is a random sentence to test comments adding functionality";
+  const comment =
+    "This is a random sentence to test comments adding functionality";
   const updComment = "A new better random comment";
 
   it("Should create an issue, add a comment there, edit and delete it successfully", () => {
